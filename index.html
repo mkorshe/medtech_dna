@@ -267,13 +267,13 @@ body.clean .d-top:hover,body.clean .d-bot:hover{opacity:1}
 .flag.grn{background:var(--ok-100)}.flag.grn b{color:var(--ok)}
 
 /* ===== 8. Питання ===== */
-.qs{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
-.qcard{position:relative;height:178px;padding:22px 24px;border-radius:22px;text-align:left;border:1px solid var(--line);background:var(--white);box-shadow:var(--shadow);overflow:hidden;transition:all .5s var(--ease)}
+.qs{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.qcard{position:relative;height:270px;padding:22px 24px;border-radius:22px;text-align:left;border:1px solid var(--line);background:var(--white);box-shadow:var(--shadow);overflow:hidden;transition:all .5s var(--ease)}
 .qcard .bad,.qcard .good{position:absolute;left:24px;right:24px;top:22px;transition:all .7s var(--ease)}
 .qcard .lab{display:inline-flex;align-items:center;gap:6px;font:600 14px var(--body);padding:5px 10px;border-radius:8px}
 .qcard .bad .lab{background:var(--bad-100);color:var(--bad)}
 .qcard .good .lab{background:var(--ok-100);color:var(--ok)}
-.qcard p{margin:12px 0 0;font:400 22px/1.3 var(--head)}
+.qcard p{margin:18px 0 0;font:400 28px/1.3 var(--head)}
 .qcard .good{opacity:0;transform:translateY(40px)}
 .qcard .hintx{position:absolute;right:20px;bottom:16px;font-size:13px;color:var(--accent);font-weight:600;transition:opacity .3s}
 .qcard.fix{border-color:var(--ok);background:linear-gradient(180deg,var(--white),var(--ok-100))}
@@ -287,8 +287,22 @@ body.clean .d-top:hover,body.clean .d-bot:hover{opacity:1}
 .cs-lab{display:flex;flex-direction:column;justify-content:center;padding:10px 16px;border-radius:16px;background:var(--bT);color:var(--white)}
 .cs-lab span{font-size:13px;opacity:.85}
 .cs-lab b{font:500 18px/1.2 var(--head)}
-.cs{position:relative;padding:10px 14px 10px 14px;border-radius:16px;background:var(--white);border:1px solid var(--line);font-size:14px;line-height:1.38}
-.cs i{display:block;font-style:normal;font-weight:600;color:var(--bT);font-size:13px;margin-bottom:2px}
+.cs{position:relative;display:flex;align-items:center;gap:14px;padding:8px 16px;border-radius:16px;background:var(--white);border:1px solid var(--line)}
+.cs svg{width:124px;height:74px;flex:none;overflow:visible}
+.cs p{margin:0;font:500 17px/1.22 var(--head)}
+.cs .f{fill:var(--p500)}
+.cs .sheet{fill:var(--p200);stroke:var(--p600);stroke-width:1.5}
+.cs .tr{fill:none;stroke:var(--ink);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.cs .w{fill:var(--warm)}
+.cs text{font:700 15px var(--head);fill:var(--ink)}
+.cs .hl{fill:var(--warm);opacity:.55}
+.cs .spark{fill:var(--accent)}
+.cs .arw{fill:none;stroke:var(--warm-ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.cs .ht{fill:var(--accent)}
+.cs .pl{fill:none;stroke:var(--white);stroke-width:2.4;stroke-linejoin:round;stroke-linecap:round}
+.cs .draw{stroke-dasharray:320;stroke-dashoffset:320}
+.slide.on .cs .draw{animation:csDraw 1.6s var(--ease) .7s forwards}
+@keyframes csDraw{to{stroke-dashoffset:0}}
 .cs + .cs::before{content:"→";position:absolute;left:-10px;top:50%;transform:translate(-50%,-50%);color:var(--p600);font-size:14px}
 .stairs{position:relative}
 .stairs svg{width:100%;height:auto;display:block;overflow:visible}
@@ -491,10 +505,10 @@ body.clean .d-top:hover,body.clean .d-bot:hover{opacity:1}
 .ill{font-size:14px;color:var(--s400);margin-top:12px}
 
 /* ===== 12. Регуляторика ===== */
-.rg-tog{display:inline-flex;padding:4px;border-radius:99px;background:var(--p400);margin-top:22px}
+.rg-tog{display:inline-flex;padding:4px;border-radius:99px;background:var(--p400)}
 .rg-tog button{padding:9px 18px;border-radius:99px;font-size:14.5px;font-weight:500;color:var(--s500);transition:all .3s}
 .rg-tog button.on{background:var(--white);color:var(--ink);box-shadow:var(--shadow)}
-.path{position:relative;margin-top:44px;height:190px}
+.path{position:relative;margin-top:52px;height:190px}
 .path .rail{position:absolute;left:40px;right:40px;top:34px;height:4px;border-radius:4px;background:var(--s100)}
 .path .fill{position:absolute;left:40px;top:34px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--accent-2),var(--accent));width:0;transition:width .7s var(--ease)}
 .path .nodes{position:absolute;left:0;right:0;top:0;display:flex;justify-content:space-between}
@@ -505,35 +519,28 @@ body.clean .d-top:hover,body.clean .d-bot:hover{opacity:1}
 .path .n.ok i{border-color:var(--accent);color:var(--white);background:var(--accent);transform:scale(1.06)}
 .path .n.skip{opacity:.25}
 .path .n.skip i{border-style:dashed}
-.rg-notes{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}
-.rg-notes .card{padding:20px 22px;font-size:16px;line-height:1.45}
-.rg-notes b{font:500 20px var(--head);display:block;margin-bottom:6px}
+.rg-notes{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:40px}
+.rg-notes .card{padding:24px 26px;font-size:18px;line-height:1.45}
+.rg-notes b{font:500 22px var(--head);display:block;margin-bottom:6px}
 .rg-notes .dark{background:var(--p900);color:var(--white);border-color:var(--p900)}
 .rg-notes .dark b{color:var(--p500)}
-.rg-notes q{font-weight:600;color:var(--warm-ink)}
+.rg-notes q{quotes:none;font-weight:600;color:var(--warm-ink)}
 
 /* ===== 13. Repurposing ===== */
-.rp-row{display:grid;grid-template-columns:170px repeat(3,1fr);gap:14px;margin-top:16px;align-items:stretch}
-.rp-lab{display:flex;flex-direction:column;justify-content:center;gap:6px}
-.rp-lab b{font:500 21px/1.15 var(--head)}
-.rp-lab small{font-size:14.5px;color:var(--s400);line-height:1.35}
-.rp{height:222px;gap:4px;padding:14px 14px 12px;border-radius:20px;background:var(--white);border:1px solid var(--line);box-shadow:var(--shadow);text-align:left;display:flex;flex-direction:column;gap:6px;transition:all .4s var(--ease);position:relative;overflow:hidden}
-.rp:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
-.rp h4{margin:0 0 2px;font:600 17px var(--head)}
-.rp .st{position:relative;display:flex;flex-direction:column;gap:1px;padding:6px 9px;border-radius:11px;background:var(--p200);font-size:12.5px;line-height:1.25;transition:all .5s var(--ease)}
-.rp .st small{font-size:10.5px;color:var(--s400);font-variant-numeric:tabular-nums}
-.rp .st.h{opacity:0;transform:translateY(10px);max-height:0;padding-block:0;margin-top:-6px}
-.rp .ar{font-size:11px;color:var(--accent);text-align:center;line-height:1;transition:all .4s;opacity:0;max-height:0}
-.rp.open .st.h{opacity:1;transform:none;max-height:60px;padding-block:6px;margin-top:0}
-.rp .ar{display:none}
-.rp .st + .ar + .st{position:relative}
-.rp.open .st.h::before{content:"";position:absolute;left:16px;top:-5px;width:2px;height:5px;background:var(--p500)}
-.rp.open div.st:last-of-type{background:var(--p900);color:var(--white)}
-.rp.open div.st:last-of-type small{color:var(--p500)}
-.rp .go{margin-top:auto;font-size:12.5px;color:var(--accent);font-weight:600}
-.rp.open .go{display:none}
-.rp.cli .st:first-child{text-decoration:none}
-.rp-out{margin-top:14px;font:300 22px var(--head)}
+.rp-tb{display:grid;grid-template-columns:170px 1fr;gap:14px 18px;margin-top:30px}
+.rp-lab{display:flex;align-items:center}
+.rp-lab b{font:500 24px/1.15 var(--head)}
+.rp{display:grid;grid-template-columns:150px 1fr 36px 1fr;align-items:center;gap:10px;padding:14px 18px;border-radius:20px;background:var(--white);border:1px solid var(--line);text-align:left;transition:border-color .3s}
+.rp:hover{border-color:var(--p600)}
+.rp h4{margin:0;font:600 22px var(--head)}
+.rp .st{display:flex;flex-direction:column;gap:3px;padding:12px 16px;border-radius:14px;background:var(--p200);font-size:18px;line-height:1.25;transition:all .5s var(--ease)}
+.rp .st small{font-size:14px;color:var(--s400);font-variant-numeric:tabular-nums}
+.rp .st.h{opacity:0;transform:translateX(-14px)}
+.rp .ar{font-size:22px;color:var(--accent);text-align:center;opacity:0;transition:opacity .4s}
+.rp.open .ar{opacity:1}
+.rp.open .st.h{opacity:1;transform:none;background:var(--p900);color:var(--white)}
+.rp.open .st.h small{color:var(--p500)}
+.rp-out{margin-top:26px;font:300 28px var(--head)}
 .rp-out b{font-weight:600;color:var(--accent)}
 
 /* ===== 14. Мутації ===== */
@@ -780,7 +787,6 @@ body.clean .d-top:hover,body.clean .d-bot:hover{opacity:1}
 
 <!-- 8 ─────────── ПИТАННЯ -->
 <section class="slide" data-title="Погані та хороші питання" data-sec="A · Проблема">
-  <h2 class="title rise" style="--d:1">Переформулюйте <b>питання</b></h2>
   <div class="qs">
     <button class="qcard rise" style="--d:3"><div class="bad"><span class="lab">✕ Погано</span><p>«Чи корисний був би вам додаток для моніторингу тиску?»</p></div><div class="good"><span class="lab">✓ Добре</span><p>«Як ви дізналися про останній гіпертонічний криз пацієнта?»</p></div></button>
     <button class="qcard rise" style="--d:4"><div class="bad"><span class="lab">✕ Погано</span><p>«Ви б за це платили?»</p></div><div class="good"><span class="lab">✓ Добре</span><p>«Що ви вже пробували, щоб це вирішити? Скільки це коштувало?»</p></div></button>
@@ -793,10 +799,10 @@ body.clean .d-top:hover,body.clean .d-bot:hover{opacity:1}
 <section class="slide" data-fx="mvp" data-title="Рішення і MVP" data-sec="T · Рішення і команда">
   <h2 class="title rise" style="--d:1;max-width:none;font-size:44px">MVP — найдешевший спосіб <b>дізнатися правду</b></h2>
   <div class="case rise" style="--d:2">
-    <div class="cs-lab"><span>Кейс</span><b>AI для читання ЕКГ</b></div>
-    <div class="cs"><i>Біль</i>Сімейний лікар знімає ЕКГ, але не завжди впевнений у розшифровці, а кардіолог доступний не одразу</div>
-    <div class="cs"><i>Рішення</i>Алгоритм аналізує запис і позначає ознаки фібриляції передсердь та інших порушень</div>
-    <div class="cs"><i>Цінність</i>Пацієнт із ризиком швидше потрапляє до кардіолога</div>
+    <div class="cs-lab"><b>AI для читання ЕКГ</b></div>
+    <div class="cs"><svg viewBox="0 0 120 72" aria-hidden="true"><circle class="f" cx="22" cy="20" r="11"/><path class="f" d="M4 66c0-18 8-27 18-27s18 9 18 27z"/><rect class="sheet" x="50" y="12" width="60" height="46" rx="6"/><polyline class="tr draw" points="54,37 62,37 65,31 68,37 72,37 75,21 78,47 81,37 90,37 93,32 96,37 106,37"/><circle class="w" cx="108" cy="14" r="10"/><text x="108" y="19" text-anchor="middle">?</text></svg><p>Лікар сумнівається</p></div>
+    <div class="cs"><svg viewBox="0 0 120 72" aria-hidden="true"><rect class="sheet" x="3" y="10" width="114" height="52" rx="8"/><rect class="hl" x="46" y="14" width="44" height="44" rx="6"/><polyline class="tr draw" points="8,38 15,38 18,20 21,50 24,38 31,38 34,20 37,50 40,38 49,38 51,22 54,50 56,38 60,38 62,22 65,50 67,38 79,38 81,22 84,50 86,38 95,38 98,20 101,50 104,38 112,38"/><path class="spark" d="M108 2l2.6 6.4L117 11l-6.4 2.6L108 20l-2.6-6.4L99 11l6.4-2.6z"/></svg><p>AI позначає аритмію</p></div>
+    <div class="cs"><svg viewBox="0 0 120 72" aria-hidden="true"><circle class="f" cx="18" cy="22" r="10"/><path class="f" d="M2 64c0-16 7-25 16-25s16 9 16 25z"/><path class="arw" d="M42 40h18m-7-7l7 7-7 7"/><path class="ht" d="M92 66L71 44c-9-10-3-25 9-25 6 0 10 4 12 8 2-4 6-8 12-8 12 0 18 15 9 25z"/><polyline class="pl draw" points="72,42 84,42 88,33 93,50 97,42 112,42"/></svg><p>Швидше до кардіолога</p></div>
   </div>
   <div class="mvp">
     <div class="stairs rise" style="--d:3">
@@ -878,7 +884,6 @@ body.clean .d-top:hover,body.clean .d-bot:hover{opacity:1}
 
 <!-- 12 ─────────── РЕГУЛЯТОРИКА -->
 <section class="slide" data-fx="reg" data-title="Регуляторика й докази" data-sec="C · Докази">
-  <h2 class="title rise" style="--d:1;font-size:44px;max-width:none">Те, що ви обіцяєте, визначає <b>регуляторний шлях</b></h2>
   <div class="rg-tog rise" style="--d:2"><button class="on" data-m="well">Велнес-застосунок</button><button data-m="med">Медичний виріб (SaMD)</button></div>
   <div class="path rise" style="--d:3">
     <div class="rail"></div><div class="fill" id="rgFill"></div>
@@ -900,18 +905,14 @@ body.clean .d-top:hover,body.clean .d-bot:hover{opacity:1}
 <!-- 13 ─────────── REPURPOSING -->
 <section class="slide" data-title="Repurposing" data-sec="Repurposing">
   <h2 class="title rise" style="--d:1;font-size:40px;max-width:none">Той самий продукт, <b>інший ринок</b> або <b>клієнт</b></h2>
-  <div class="rp-row">
-    <div class="rp-lab rise" style="--d:2"><b>Нове показання</b><small>Змінюється ринок</small></div>
-    <button class="rp rise" style="--d:2"><h4>Силденафіл</h4><div class="st"><small>1990-ті · випробування</small>Стенокардія</div><span class="ar">↓</span><div class="st h"><small>1998 · Viagra</small>Еректильна дисфункція</div><span class="ar">↓</span><div class="st h"><small>2005 · Revatio</small>Легенева гіпертензія</div></button>
-    <button class="rp rise" style="--d:3"><h4>Семаглутид</h4><div class="st"><small>2017 · Ozempic</small>Діабет 2 типу</div><span class="ar">↓</span><div class="st h"><small>2021 · Wegovy</small>Ожиріння</div></button>
+  <div class="rp-tb">
+    <div class="rp-lab rise" style="--d:2"><b>Новий ринок</b></div>
+    <button class="rp rise" style="--d:2"><h4>Силденафіл</h4><div class="st"><small>1990-ті · випробування</small>Стенокардія</div><span class="ar">→</span><div class="st h"><small>1998 · Viagra</small>Еректильна дисфункція</div></button>
+    <div class="rp-lab rise" style="--d:3;grid-row:span 2"><b>Новий клієнт</b></div>
+    <button class="rp rise" style="--d:3"><h4>Ботокс</h4><div class="st"><small>1989 · офтальмологія</small>Косоокість, блефароспазм</div><span class="ar">→</span><div class="st h"><small>2002 · пацієнт платить сам</small>Естетична медицина</div></button>
+    <button class="rp rise" style="--d:4"><h4>23andMe</h4><div class="st"><small>Споживач</small>Генетичні тести вдома</div><span class="ar">→</span><div class="st h"><small>2018 · угода з GSK</small>Дані для фарми</div></button>
   </div>
-  <div class="rp-row">
-    <div class="rp-lab rise" style="--d:6"><b>Новий клієнт</b><small>Змінюється той, хто платить</small></div>
-    <button class="rp rise" style="--d:6"><h4>Ботокс</h4><div class="st"><small>1989 · офтальмологія</small>Косоокість, блефароспазм</div><span class="ar">↓</span><div class="st h"><small>2002 · пацієнт платить сам</small>Естетична медицина</div><span class="ar">↓</span><div class="st h"><small>2010</small>Хронічна мігрень</div></button>
-    <button class="rp rise" style="--d:7"><h4>Міноксидил</h4><div class="st"><small>Кардіолог</small>Таблетки від гіпертензії</div><span class="ar">↓</span><div class="st h"><small>1988 · Rogaine</small>Облисіння</div><span class="ar">↓</span><div class="st h"><small>1996 · споживач</small>Без рецепта</div></button>
-    <button class="rp rise" style="--d:10"><h4>23andMe</h4><div class="st"><small>Споживач</small>Генетичні тести вдома</div><span class="ar">↓</span><div class="st h"><small>2018 · угода з GSK</small>Дані для фарми</div></button>
-  </div>
-  <div class="rp-out" data-s="1">Іноді проблема правильна, а <b>клієнт — ні</b>. Перегляньте карти гравців ще раз</div>
+  <div class="rp-out" data-s="1">Іноді проблема правильна, а <b>клієнт — ні</b></div>
 </section>
 
 <!-- 14 ─────────── МУТАЦІЇ -->
@@ -1426,7 +1427,7 @@ stage.querySelector('[data-title="Погані та хороші питання"
     ['doc','Лікар','#256585','Брак часу, документація','Менше рутини, більше точності','Увагою та часом на навчання','Так: не користуватиметься','user'],
     ['nur','Медсестра','#6396B0','Навантаження','Простіший процес','Часом','Тихо: обхідні шляхи','user'],
     ['adm','Головлікар','#143647','Бюджет, KPI, ризики','Ефективність і репутація','Бюджетом закладу','Так','chooser'],
-    ['it','IT і закупівлі','#4F6B7C','Інтеграції, безпека даних','Сумісність з МІС','Ні','Так','blocker'],
+    ['it','IT','#4F6B7C','Інтеграції, безпека даних','Сумісність з МІС','Ні','Так','blocker'],
     ['nszu','НСЗУ','#E8964F','Обмежений бюджет','Ефект для популяції','Пакетами медгарантій','Так','payer'],
     ['ins','Страхова','#A35A1C','Виплати за випадки','Профілактика, менше випадків','Полісами','Щодо покриття','payer'],
     ['ph','Фарма','#2E8A6E','Доступ до пацієнтів і даних','Продажі, реальні дані','Партнерствами','Ні','benef'],
