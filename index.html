@@ -179,6 +179,7 @@ body.clean .d-top:hover,body.clean .d-bot:hover{opacity:1}
 .chart .hok{stroke:var(--accent)}
 .chart .valley{fill:var(--bad-100)}
 .chart .lb{font:600 14px var(--body)}
+.chart .pt{stroke:var(--white);stroke-width:2}.chart .pt.g{fill:var(--s500)}.chart .pt.a{fill:var(--accent)}
 .chart .lb.g{fill:var(--s500)}.chart .lb.a{fill:var(--accent)}.chart .lb.r{fill:var(--bad)}
 
 /* ===== 5. Воронка ===== */
@@ -264,19 +265,6 @@ body.clean .d-top:hover,body.clean .d-bot:hover{opacity:1}
 .flag.grn{background:var(--ok-100)}.flag.grn b{color:var(--ok)}
 
 /* ===== 8. Питання ===== */
-.qs{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.qcard{position:relative;height:270px;padding:22px 24px;border-radius:22px;text-align:left;border:1px solid var(--line);background:var(--white);box-shadow:var(--shadow);overflow:hidden;transition:all .5s var(--ease)}
-.qcard .bad,.qcard .good{position:absolute;left:24px;right:24px;top:22px;transition:all .7s var(--ease)}
-.qcard .lab{display:inline-flex;align-items:center;gap:6px;font:600 14px var(--body);padding:5px 10px;border-radius:8px}
-.qcard .bad .lab{background:var(--bad-100);color:var(--bad)}
-.qcard .good .lab{background:var(--ok-100);color:var(--ok)}
-.qcard p{margin:18px 0 0;font:400 28px/1.3 var(--head)}
-.qcard .good{opacity:0;transform:translateY(40px)}
-.qcard .hintx{position:absolute;right:20px;bottom:16px;font-size:13px;color:var(--accent);font-weight:600;transition:opacity .3s}
-.qcard.fix{border-color:var(--ok);background:linear-gradient(180deg,var(--white),var(--ok-100))}
-.qcard.fix .bad{opacity:0;transform:translateY(-40px);filter:blur(4px)}
-.qcard.fix .good{opacity:1;transform:none}
-.qcard.fix .hintx{opacity:0}
 
 /* ===== T. MVP ===== */
 .mvp{display:grid;grid-template-columns:1fr 380px;gap:36px;margin-top:14px;align-items:start}
@@ -712,16 +700,16 @@ body.clean .d-top:hover,body.clean .d-bot:hover{opacity:1}
     </div>
     <div class="card chart rise" style="--d:3">
       <svg viewBox="0 0 600 380">
-        <path class="valley" data-s="2" d="M70 270 C110 270,140 345,205 345 C265 345,300 300,335 270 Z"/>
+        <path class="valley" data-s="2" d="M70 270 V300 C110 318,150 345,205 345 C265 345,300 300,335 270 Z"/>
         <path class="ax" d="M70 20 V360 M70 270 H580"/>
-        <text class="axl" x="78" y="30">ROI</text>
-        <text class="axl" x="60" y="275" text-anchor="end">0%</text>
+        <text class="axl" x="78" y="30">заробіток</text>
+        <text class="axl" x="60" y="275" text-anchor="end">0</text>
         <text class="axl" x="580" y="290" text-anchor="end">час</text>
-        <path class="ln lin" data-s="1" d="M70 270 L565 185"/>
-        <path class="ln hok" data-s="2" d="M70 270 C110 270,140 345,205 345 C265 345,300 300,335 270 C400 200,480 100,565 35"/>
-        <g data-s="1"><text class="lb g" x="565" y="222" text-anchor="end">малий бізнес</text><text class="lb g" x="565" y="244" text-anchor="end">прибуток +50% YoY</text></g>
-        <g data-s="2"><text class="lb a" x="470" y="58" text-anchor="end">стартап</text><text class="lb a" x="470" y="80" text-anchor="end">прибуток +500% YoY</text></g>
-        <text class="lb r" data-s="2" x="205" y="305" text-anchor="middle">долина смерті</text>
+        <path class="ln lin" data-s="1" d="M70 300 L565 201"/>
+        <path class="ln hok" data-s="2" d="M70 300 C110 318,150 345,205 345 C265 345,300 300,335 270 C400 200,480 100,565 35"/>
+        <g data-s="1"><circle class="pt g" cx="220" cy="270" r="6"/><text class="lb g" x="220" y="256" text-anchor="middle">ROI</text><text class="lb g" x="565" y="238" text-anchor="end">малий бізнес</text><text class="lb g" x="565" y="260" text-anchor="end">прибуток +50% YoY</text></g>
+        <g data-s="2"><circle class="pt a" cx="335" cy="270" r="6"/><text class="lb a" x="345" y="292">ROI</text><text class="lb a" x="470" y="58" text-anchor="end">стартап</text><text class="lb a" x="470" y="80" text-anchor="end">прибуток +500% YoY</text></g>
+        <text class="lb r" data-s="2" x="205" y="316" text-anchor="middle">долина смерті</text>
         <text class="axl" x="580" y="372" text-anchor="end">Умовний приклад</text>
       </svg>
     </div>
@@ -785,16 +773,6 @@ body.clean .d-top:hover,body.clean .d-bot:hover{opacity:1}
         <div class="flag grn"><b>Зелений прапорець</b>Людина вже витрачає на проблему гроші, час або має свій «костиль»</div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- 8 ─────────── ПИТАННЯ -->
-<section class="slide" data-title="Погані та хороші питання" data-sec="A · Проблема">
-  <div class="qs">
-    <button class="qcard rise" style="--d:3"><div class="bad"><span class="lab">✕ Погано</span><p>«Чи корисний був би вам додаток для моніторингу тиску?»</p></div><div class="good"><span class="lab">✓ Добре</span><p>«Як ви дізналися про останній гіпертонічний криз пацієнта?»</p></div></button>
-    <button class="qcard rise" style="--d:4"><div class="bad"><span class="lab">✕ Погано</span><p>«Ви б за це платили?»</p></div><div class="good"><span class="lab">✓ Добре</span><p>«Що ви вже пробували, щоб це вирішити? Скільки це коштувало?»</p></div></button>
-    <button class="qcard rise" style="--d:5"><div class="bad"><span class="lab">✕ Погано</span><p>«Це ж проблема, правда?»</p></div><div class="good"><span class="lab">✓ Добре</span><p>«Розкажіть про останній раз, коли це сталося»</p></div></button>
-    <button class="qcard rise" style="--d:6"><div class="bad"><span class="lab">✕ Погано</span><p>«Чи користувались би ви…?»</p></div><div class="good"><span class="lab">✓ Добре</span><p>«Що станеться, якщо це просто ігнорувати?»</p></div></button>
   </div>
 </section>
 
@@ -1306,7 +1284,6 @@ stage.querySelector('[data-title="Стартап чи ні?"]').querySelectorAll
 })();
 
 /* 8. питання */
-stage.querySelector('[data-title="Погані та хороші питання"]').querySelectorAll('.qcard').forEach(b=>b.onclick=()=>b.classList.toggle('fix'));
 
 /* T. MVP-сходи */
 (()=>{
